@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    /* Setup for Dark mode as default for neo-morphism */
+    --background: 226 50% 8%; /* #0A0F1E Deep Navy */
+    --foreground: 210 40% 98%; /* #F8FAFC White Text */
+    
+    --card: 226 40% 12%; 
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 226 40% 12%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 221 83% 53%; /* #2563EB Electric Blue */
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 215 16% 47%; /* #64748B Slate */
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 226 30% 15%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 188 94% 43%; /* #06B6D4 Cyan */
+    --accent-foreground: 226 50% 8%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 226 30% 20%;
+    --input: 226 30% 20%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
