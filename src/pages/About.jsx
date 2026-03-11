@@ -40,7 +40,7 @@ export default function About() {
               transition={{ delay: 0.2 }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-primary">Our Story</h2>
+              <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-primary">Our Story</h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
                 Sporada Secure was founded with a singular mission: to eliminate the gaps inherent in physical guard systems. Humans get tired, but our AI-backed surveillance grid does not.
               </p>
@@ -50,11 +50,11 @@ export default function About() {
               
               <div className="pt-6 flex gap-8">
                 <div>
-                  <div className="text-4xl font-black text-white">3500+</div>
+                  <div className="text-4xl font-black text-foreground">3500+</div>
                   <div className="text-primary font-medium mt-1 uppercase tracking-wider text-sm">Active Clients</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-black text-white">2014</div>
+                  <div className="text-4xl font-black text-foreground">2014</div>
                   <div className="text-primary font-medium mt-1 uppercase tracking-wider text-sm">Year Founded</div>
                 </div>
               </div>

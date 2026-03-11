@@ -9,10 +9,10 @@ export function HeroSection() {
       {/* Background Decor: Grid & Particles */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-primary/20 rounded-full blur-[120px] opacity-50" />
-      
+
       <div className="container mx-auto px-4 z-10 relative">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          
+
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export function HeroSection() {
             <span className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium bg-primary/10 text-primary uppercase tracking-wider mb-6 border border-primary/20">
               Transform Your Security Operations
             </span>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
               India's Most Trusted <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
                 e-Surveillance Platform
@@ -51,7 +51,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-4 md:gap-8 pt-12"
+            className="flex flex-wrap justify-center gap-4 md:gap-8 py-6"
           >
             {[
               { label: "1750+ Clients", icon: <ShieldCheck className="w-4 h-4 text-primary" /> },

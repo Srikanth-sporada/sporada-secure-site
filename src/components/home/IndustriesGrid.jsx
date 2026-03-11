@@ -15,8 +15,8 @@ export function IndustriesGrid() {
               Every vertical has unique vulnerabilities. Our AI models are trained on millions of hours of industry-specific footage to provide targeted protection.
             </p>
           </div>
-          <Link to="/industries" className="text-primary hover:text-white font-semibold flex items-center group transition-colors">
-            View All Industries 
+          <Link to="/industries" className="text-primary hover:text-foreground font-semibold flex items-center group transition-colors">
+            View All Industries
             <Icons.ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -24,7 +24,7 @@ export function IndustriesGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {industries.map((ind, index) => {
             const IconComponent = Icons[ind.icon] || Icons.Shield;
-            
+
             return (
               <motion.div
                 key={ind.id}
@@ -46,7 +46,7 @@ export function IndustriesGrid() {
                         {ind.shortDescription}
                       </CardDescription>
                     </CardContent>
-                    
+
                     {/* Hover Glow Edge effect */}
                     <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
                   </Card>

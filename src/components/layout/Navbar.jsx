@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { ShieldCheck, X, Phone, MapPin, ScanFace } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/data/navigation";
 import { Button } from "@/components/ui/button";
@@ -26,87 +26,182 @@ export function Navbar() {
 
   return (
     <>
-      {/* Utility Bar */}
-      <div className="hidden lg:flex justify-end items-center px-8 py-2 bg-background border-b border-border/50 text-xs text-muted-foreground space-x-6 z-50 relative">
-        <div className="flex items-center space-x-2">
-          <Phone className="w-3 h-3 text-primary" />
-          <span>+91-422-231-2363 / +91-739-975-0001</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <MapPin className="w-3 h-3 text-primary" />
-          <span>Ramanathapuram, Coimbatore, India</span>
-        </div>
-      </div>
-
       <motion.header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md shadow-md border-b border-border/50 py-3" : "bg-transparent py-5"
-        }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? "bg-background border-b border-border shadow-sm py-3"
+          : "bg-background/40 backdrop-blur-md py-2"
+          }`}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 20,
+          duration: 0.8
+        }}
       >
-        <div className="container mx-auto px-4 md:px-8 flex items-center justify-between">
-          <Link to="/" className="flex items-center z-50">
-            <img src={headerLogo} alt="Sporada Secure" className="h-10 w-auto" />
-          </Link>
+        {/* Utility Bar (Commented by user) */}
+        {/* ... (omitted for brevity) ... */}
+
+        <div className="container mx-auto px-2 md:px-8 flex items-center justify-between relative">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            <Link to="/" className="flex items-center group">
+              <img
+                src={headerLogo}
+                alt="Sporada Secure"
+                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
+          </motion.div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname.startsWith(link.path) ? "text-primary font-semibold" : "text-muted-foreground"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center bg-secondary/30 backdrop-blur-md px-2 py-1.5 rounded-full border border-border/40 relative">
+            {navLinks.map((link, index) => {
+              const isActive = location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path));
+              return (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:text-primary ${isActive ? "text-primary" : "text-muted-foreground"
+                    }`}
+                >
+                  <motion.span
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className="relative z-10"
+                  >
+                    {link.name}
+                  </motion.span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeNav"
+                      className="absolute inset-0 bg-background shadow-sm border border-border/50 rounded-full -z-0"
+                      transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <Button asChild variant="default" className="shadow-lg shadow-primary/20">
+          <motion.div
+            className="hidden md:flex items-center space-x-4"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
+            <Button asChild size="lg" className="rounded-full px-8 shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300">
               <Link to="/contact">Get a Demo</Link>
             </Button>
-          </div>
+          </motion.div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden z-50 p-2 text-foreground"
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="md:hidden p-2 text-foreground relative z-50 rounded-xl hover:bg-secondary/80 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <div className="flex flex-col gap-1.5 items-end">
+                <div className="w-6 h-0.5 bg-primary rounded-full" />
+                <div className="w-4 h-0.5 bg-primary rounded-full opacity-80" />
+                <div className="w-6 h-0.5 bg-primary rounded-full" />
+              </div>
+            )}
+          </motion.button>
         </div>
 
         {/* Mobile Nav Overlay */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "100vh" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="absolute top-0 left-0 w-full h-screen bg-background/95 backdrop-blur-xl z-40 flex flex-col pt-24 px-6 border-b border-border overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "circOut" }}
+              className="fixed inset-0 w-full h-screen bg-background z-40 overflow-hidden md:hidden"
             >
-              <nav className="flex flex-col space-y-6 text-lg font-medium">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className="flex items-center space-x-2 pb-4 border-b border-border/50 text-foreground hover:text-primary transition-colors"
+              {/* Cinematic Background - Mesh Gradient */}
+              <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(37,99,235,0.15)_0%,transparent_50%),radial-gradient(circle_at_80%_70%,rgba(6,182,212,0.15)_0%,transparent_50%)] animate-pulse" />
+                <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 0.1 }}
+                  className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent,rgba(37,99,235,0.05),transparent)] bg-[length:100%_4px] animate-[scan_4s_linear_infinite]"
+                />
+              </div>
+
+              <div className="relative z-10 flex flex-col h-full pt-28 pb-12 px-8 justify-between">
+                <nav className="flex flex-col space-y-8">
+                  {navLinks.map((link, index) => {
+                    const isActive = location.pathname === link.path || (link.path !== "/" && location.pathname.startsWith(link.path));
+                    return (
+                      <motion.div
+                        key={link.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.15 + index * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                      >
+                        <Link
+                          to={link.path}
+                          className="flex items-center space-x-5 group"
+                        >
+                          <span className={`text-[10px] font-mono tracking-widest opacity-30 group-hover:opacity-100 transition-opacity ${isActive ? "opacity-100 text-primary" : "text-muted-foreground"}`}>
+                            0{index + 1}
+                          </span>
+                          <div className="relative overflow-hidden">
+                            <span className={`text-3xl font-bold tracking-tight transition-all duration-300 ${isActive ? "text-primary" : "text-foreground group-hover:text-primary/70"
+                              }`}>
+                              {link.name}
+                            </span>
+                            {isActive && (
+                              <motion.div
+                                layoutId="mobileActive"
+                                className="absolute -bottom-1 left-0 w-full h-0.5 bg-primary rounded-full"
+                                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                              />
+                            )}
+                          </div>
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+                </nav>
+
+                <div className="space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="w-full"
                   >
-                    <span className="text-primary">{link.icon}</span>
-                    <span>{link.name}</span>
-                  </Link>
-                ))}
-              </nav>
-              <div className="mt-8">
-                <Button asChild className="w-full">
-                  <Link to="/contact">Get a Demo</Link>
-                </Button>
+                    <Button asChild size="lg" className="mt-4 h-12 w-full text-xl font-bold rounded-2xl bg-primary hover:bg-primary/90 shadow-[0_15px_40px_rgba(37,99,235,0.2)] transition-all duration-500 hover:scale-[1.01] border border-white/5">
+                      <Link to="/contact">Get a Demo</Link>
+                    </Button>
+                  </motion.div>
+
+                  <motion.div
+                    className="flex justify-between items-end border-t border-border/20 pt-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.8 }}
+                  >
+                    <div className="space-y-1">
+                      <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold opacity-50">Shielding Assets</p>
+                      <p className="text-[10px] font-mono text-muted-foreground/30">Sporada Secure v2.0</p>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           )}

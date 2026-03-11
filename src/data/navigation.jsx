@@ -1,24 +1,34 @@
-import { Shield, Briefcase, Info, Mail, LayoutGrid } from "lucide-react";
+import { Home, ScanSearch, Building2, ShieldCheck, Zap, MessageSquare } from "lucide-react";
 
 export const navLinks = [
   {
+    name: "Home",
+    path: "/",
+    icon: <Home className="w-5 h-5" />
+  },
+  {
     name: "Solutions",
     path: "/solutions",
-    icon: <Shield className="w-4 h-4" />
+    icon: <ScanSearch className="w-5 h-5" />
   },
   {
     name: "Industries",
     path: "/industries",
-    icon: <Briefcase className="w-4 h-4" />
+    icon: <Building2 className="w-5 h-5" />
   },
   {
     name: "About Us",
     path: "/about",
-    icon: <Info className="w-4 h-4" />
+    icon: <ShieldCheck className="w-5 h-5" />
+  },
+  {
+    name: "Blog",
+    path: "/blog",
+    icon: <Zap className="w-5 h-5" />
   },
   {
     name: "Contact",
     path: "/contact",
-    icon: <Mail className="w-4 h-4" />
+    icon: <MessageSquare className="w-5 h-5" />
   }
 ];

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const TRADEMARKS = [
-  "Acme Corp", "Globex", "Initech", "Umbrella", "Stark Ind", "Wayne Ent", 
+  "Acme Corp", "Globex", "Initech", "Umbrella", "Stark Ind", "Wayne Ent",
   "Cyberdyne", "Soylent", "Massive Dynamic", "Hooli", "Pied Piper", "Aviato"
 ];
 
@@ -13,11 +13,11 @@ export function TrustBar() {
           Trusted by 3500+ clients across 15 countries
         </p>
       </div>
-      
+
       <div className="relative flex overflow-x-hidden group">
         <div className="absolute inset-0 w-32 left-0 z-10 bg-gradient-to-r from-card to-transparent" />
         <div className="absolute inset-0 w-32 right-0 z-10 bg-gradient-to-l from-card to-transparent" />
-        
+
         <motion.div
           className="flex whitespace-nowrap gap-16 py-4 items-center"
           animate={{ x: [0, -1000] }}
