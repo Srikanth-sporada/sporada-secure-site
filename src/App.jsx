@@ -7,6 +7,7 @@ import IndustryDetail from "@/pages/IndustryDetail";
 import Solutions from "@/pages/Solutions";
 import SolutionDetail from "@/pages/SolutionDetail";
 import Contact from "@/pages/Contact";
+import Blog from "@/pages/Blog";
 import NotFound from "@/pages/NotFound";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/industries" element={<Industries />} />
         <Route path="/industries/:slug" element={<IndustryDetail />} />
         <Route path="/solutions" element={<Solutions />} />
