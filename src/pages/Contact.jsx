@@ -48,39 +48,23 @@ export default function Contact() {
 
   return (
     <>
-      <SEOHead 
-        title="Contact Us" 
+      <SEOHead
+        title="Contact Us"
         description="Get in touch with Sporada Secure for a free demo or consultation on how AI video analytics can protect your business."
       />
-      <div className="min-h-screen bg-background pt-24 pb-24">
+      <div className="min-h-screen bg-background pt-28 pb-4">
         <div className="container mx-auto px-4 md:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-black mb-6"
-            >
-               Get a Free <span className="text-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Demo</span>
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              className="text-lg text-muted-foreground"
-            >
-              Ready to eliminate false alarms and maximize your security budget? Speak directly with our security architects today.
-            </motion.p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
-            
             {/* Contact Info Col */}
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }} 
-              animate={{ opacity: 1, x: 0 }} 
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="space-y-12"
+              className="space-y-6"
             >
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-8">Reach Out Direct</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">Reach Out Direct</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
@@ -88,10 +72,10 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-lg text-foreground mb-1">Global Headquarters</h4>
-                      <p className="text-muted-foreground leading-relaxed">687/7, Trichy Road, Ramanathapuram<br/>Coimbatore – 641045, Tamil Nadu, India</p>
+                      <p className="text-muted-foreground leading-relaxed">687/7, Trichy Road, Ramanathapuram<br />Coimbatore – 641045, Tamil Nadu, India</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
                       <Phone className="w-5 h-5" />
@@ -102,7 +86,7 @@ export default function Contact() {
                       <p className="text-muted-foreground">+91-739-975-0001</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
                       <Mail className="w-5 h-5" />
@@ -117,36 +101,37 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Fake Map Embed Placeholder for NeoMorphic Vibe */}
-              <div className="h-64 rounded-2xl bg-card border border-border overflow-hidden relative group cursor-pointer shadow-lg">
-                <div className="absolute inset-0 bg-[url('https://maps.googleapis.com/maps/api/staticmap?center=Coimbatore,India&zoom=12&size=600x300&style=feature:all|element:labels|visibility:off&style=feature:water|color:0x000000&style=feature:landscape|color:0x111111&sensor=false')] bg-cover bg-center mix-blend-screen opacity-40 grayscale" />
-                <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-background/80 backdrop-blur px-4 py-2 rounded-full border border-border shadow-md flex items-center gap-2 font-medium text-sm text-foreground">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    View on Google Maps
-                  </div>
-                </div>
+              <div className="h-40 rounded-2xl bg-card border border-border overflow-hidden relative shadow-lg">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.558937419591!2d77.00413!3d10.996626499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857833472ff6b%3A0x638caf0fa1ed3f0c!2sSporada%20Secure%20India%20Private%20Limited!5e0!3m2!1sen!2sin!4v1773392965941!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="grayscale hover:grayscale-0 transition-all duration-500 opacity-80 hover:opacity-100"
+                />
               </div>
             </motion.div>
 
             {/* Contact Form Col */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }} 
-              animate={{ opacity: 1, scale: 1 }} 
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 }}
-              className="bg-card/50 backdrop-blur-lg border border-border/50 p-8 md:p-10 rounded-3xl shadow-2xl relative"
+              className="bg-card/50 backdrop-blur-lg border border-border/50 p-4 md:p-6 rounded-3xl shadow-2xl relative"
             >
               {/* Subtle top glare */}
               <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-              
+
               <h3 className="text-2xl font-bold text-foreground mb-2">Send a Message</h3>
-              <p className="text-muted-foreground mb-8">Fill out the form below and we'll be in touch within 24 hours.</p>
-              
+              <p className="text-muted-foreground mb-4 text-sm">Fill out the form below and we'll be in touch within 24 hours.</p>
+
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
                       name="name"
@@ -160,7 +145,7 @@ export default function Contact() {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="company"
@@ -179,7 +164,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <FormField
                       control={form.control}
                       name="email"
@@ -193,7 +178,7 @@ export default function Contact() {
                         </FormItem>
                       )}
                     />
-                    
+
                     <FormField
                       control={form.control}
                       name="phone"
@@ -217,7 +202,7 @@ export default function Contact() {
                         <FormLabel>Industry</FormLabel>
                         <FormControl>
                           {/* Simple native select for compatibility, Shadcn Select requires more components installed */}
-                          <select 
+                          <select
                             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                             {...field}
                           >
@@ -242,10 +227,10 @@ export default function Contact() {
                       <FormItem>
                         <FormLabel>How can we help you?</FormLabel>
                         <FormControl>
-                          <Textarea 
-                            placeholder="Tell us about your security challenges..." 
-                            className="resize-none h-32 bg-background" 
-                            {...field} 
+                          <Textarea
+                            placeholder="Tell us about your security challenges..."
+                            className="resize-none h-20 bg-background"
+                            {...field}
                           />
                         </FormControl>
                         <FormMessage />

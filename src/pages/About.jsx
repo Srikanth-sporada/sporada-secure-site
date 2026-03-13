@@ -42,10 +42,10 @@ export default function About() {
             >
               <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-primary">Our Story</h2>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Sporada Secure was founded with a singular mission: to eliminate the gaps inherent in physical guard systems. Humans get tired, but our AI-backed surveillance grid does not.
+                Sporada Secure was founded with a singular mission: to eliminate the gaps inherent in physical guard systems. Humans get tired, but our **AI-backed surveillance grid** does not. We replace passive recording with **proactive deterrence**.
               </p>
               <p className="text-muted-foreground leading-relaxed text-lg">
-                Today, our state-of-the-art Command and Control Center in Coimbatore acts as the central hub for over 3500+ clients worldwide, preventing millions of dollars in asset loss, optimizing retail floorings, and ensuring total safety compliance without risking human lives.
+                Today, our global Command Centers act as the central intelligence hub for over 3500+ clients worldwide, preventing incidents in real-time using a unified **eSurveillance framework**. Our transition from a BPO to a technology leader reflects our commitment to absolute operational transparency.
               </p>
               
               <div className="pt-6 flex gap-8">
@@ -64,15 +64,53 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.9 }} 
               animate={{ opacity: 1, scale: 1 }} 
               transition={{ delay: 0.4 }}
-              className="relative"
+              className="relative group"
             >
-              <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-2xl transform rotate-3" />
-              <div className="relative aspect-video rounded-3xl overflow-hidden border border-border/50 bg-card p-8 flex items-center justify-center shadow-2xl">
-                <div className="text-center">
-                  <ShieldCheck className="w-24 h-24 mx-auto text-primary mb-6 opacity-80" />
-                  <h3 className="text-2xl font-bold text-foreground">Global Command Center</h3>
-                  <p className="text-muted-foreground mt-2">Active 24/7/365</p>
-                </div>
+              <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-700" />
+              <div className="relative aspect-video rounded-3xl overflow-hidden border border-primary/30 bg-card/40 backdrop-blur-xl p-1 flex flex-col shadow-2xl">
+                 {/* HUD UI Elements */}
+                 <div className="absolute top-4 left-4 flex gap-2">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                    <span className="text-[10px] font-mono text-primary/80 uppercase tracking-widest font-bold">Grid_Status: ACTIVE</span>
+                 </div>
+                 <div className="absolute top-4 right-4 text-[10px] font-mono text-muted-foreground/50">
+                    LATENCY: &lt;10MS
+                 </div>
+                 
+                 <div className="flex-1 flex flex-col items-center justify-center p-8 relative">
+                    {/* Scanning Line */}
+                    <motion.div 
+                      animate={{ top: ["0%", "100%", "0%"] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      className="absolute inset-x-0 h-px bg-primary/20 shadow-[0_0_10px_rgba(37,99,235,0.5)] z-0 pointer-events-none" 
+                    />
+                    
+                    <ShieldCheck className="w-20 h-20 text-primary mb-4 opacity-100 z-10 drop-shadow-[0_0_15px_rgba(var(--primary),0.4)]" />
+                    <h3 className="text-xl font-black text-foreground z-10 tracking-tight uppercase">Unified Intelligence Grid</h3>
+                    <div className="flex items-center gap-4 mt-4 z-10">
+                       <div className="flex flex-col items-center">
+                          <span className="text-[10px] text-muted-foreground uppercase font-bold">Uptime</span>
+                          <span className="text-sm font-mono font-bold text-primary">99.9%</span>
+                       </div>
+                       <div className="w-px h-8 bg-border/50" />
+                       <div className="flex flex-col items-center">
+                          <span className="text-[10px] text-muted-foreground uppercase font-bold">Nodes</span>
+                          <span className="text-sm font-mono font-bold text-primary">3500+</span>
+                       </div>
+                    </div>
+                 </div>
+
+                 {/* Bottom HUD bar */}
+                 <div className="bg-primary/5 border-t border-primary/10 p-3 flex justify-between items-center text-[8px] font-mono text-muted-foreground px-6">
+                    <span>CMD_CTR: COIMBATORE_HUB</span>
+                    <span className="text-primary italic">SECURE_24/7_ENABLED</span>
+                 </div>
+
+                 {/* Decorative HUD corners */}
+                 <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary/40 rounded-tl-2xl" />
+                 <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary/40 rounded-tr-2xl" />
+                 <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary/40 rounded-bl-2xl" />
+                 <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary/40 rounded-br-2xl" />
               </div>
             </motion.div>
           </div>

@@ -28,13 +28,13 @@ export default function Home() {
 
   return (
     <>
-      <SEOHead 
-        title="Home" 
-        schemaData={homeSchema} 
+      <SEOHead
+        title="Home"
+        schemaData={homeSchema}
       />
       <div className="flex flex-col w-full">
         <HeroSection />
-        <TrustBar />
+        {/* <TrustBar /> */}
         <HowItWorks />
         <StatsSection />
         <IndustriesGrid />

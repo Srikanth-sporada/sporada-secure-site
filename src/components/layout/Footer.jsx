@@ -5,13 +5,16 @@ import { industries } from "@/data/industries";
 import { solutions } from "@/data/solutions";
 import footerLogo from "@/assets/sporada_secure_logo.png";
 import favicon from "@/assets/favicon.png";
+import termsPdf from "@/assets/Termsandconditions.pdf";
+import refundPdf from "@/assets/refund&cancellation.pdf";
+import privacyPdf from "@/assets/Privacy-Policy-Template.pdf";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/50 border-t border-border/60 pt-10 pb-8 relative overflow-hidden">
+    <footer className="bg-secondary/50 border-t border-border/60 py-8 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 text-center sm:text-left">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-2 text-center sm:text-left">
 
           {/* Brand Col */}
           <div className="space-y-4 flex flex-col items-center sm:items-start">
@@ -76,7 +79,7 @@ export function Footer() {
         </div>
 
         {/* Sub-footer */}
-        <div className="border-t border-border/40 pt-8 flex flex-col items-center space-y-6 text-xs text-muted-foreground text-center">
+        <div className="border-t border-border/40 pt-4 flex flex-col items-center space-y-6 text-xs text-muted-foreground text-center">
 
           <div className="flex items-center justify-center gap-4 sm:gap-6 flex-wrap">
             <a href="https://facebook.com/sporadasecure" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -111,9 +114,9 @@ export function Footer() {
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            <Link to="#" className="hover:text-foreground transition-colors">Privacy Policy</Link>
-            <Link to="#" className="hover:text-foreground transition-colors">Terms of Service</Link>
-            <Link to="#" className="hover:text-foreground transition-colors">Refund Policy</Link>
+            <a href={privacyPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Privacy Policy</a>
+            <a href={termsPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Terms of Service</a>
+            <a href={refundPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Refund Policy</a>
           </div>
         </div>
       </div>
