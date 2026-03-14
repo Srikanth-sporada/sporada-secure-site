@@ -46,7 +46,7 @@ export function SolutionsShowcase() {
   return (
     <section className="py-16 bg-card/50 relative">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-7xl mx-auto mb-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Explore Our <span className="text-primary">Solutions</span></h2>
           <p className="text-muted-foreground text-lg">
             Purpose-built intelligent solutions designed to provide ultimate protection, ensure compliance, and unlock actionable analytics.

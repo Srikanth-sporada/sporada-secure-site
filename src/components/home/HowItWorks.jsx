@@ -33,7 +33,7 @@ export function HowItWorks() {
   return (
     <section className="py-10 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-4 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-7xl mx-auto mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Proactive Security in <span className="text-primary">4 Steps</span></h2>
           <p className="text-muted-foreground text-lg">
             We don't just record crimes; our smart AI and highly-trained remote operators actively prevent them from happening.

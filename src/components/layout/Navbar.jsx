@@ -4,7 +4,7 @@ import { ShieldCheck, X, Phone, MapPin, ScanFace } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/data/navigation";
 import { Button } from "@/components/ui/button";
-import headerLogo from "@/assets/sporada_secure_logo.png";
+import headerLogo from "@/assets/leaf.jpg";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -53,7 +53,7 @@ export function Navbar() {
               <img
                 src={headerLogo}
                 alt="Sporada Secure"
-                className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105 object-contain"
+                className="h-14  w-auto transition-transform duration-300 group-hover:scale-105 object-contain"
               />
             </Link>
           </motion.div>
@@ -66,7 +66,7 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full hover:text-primary ${isActive ? "text-primary" : "text-muted-foreground"
+                  className={`relative px-4 py-2 text-md  font-medium transition-all duration-300 rounded-full hover:text-primary ${isActive ? "text-primary" : "text-black"
                     }`}
                 >
                   <motion.span

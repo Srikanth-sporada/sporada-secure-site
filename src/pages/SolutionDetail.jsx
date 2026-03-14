@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { SEOHead } from "@/components/shared/SEOHead";
 import { solutions, platformFeatures, globalHowItWorks } from "@/data/solutions";
 import { industries } from "@/data/industries";
@@ -47,6 +48,13 @@ export default function SolutionDetail() {
 
   const relatedIndustries = industries.filter(ind => solution.industries.includes(ind.slug));
 
+  const timelineRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 70%", "end 50%"]
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -73,7 +81,7 @@ export default function SolutionDetail() {
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10 max-w-7xl mx-auto flex flex-col items-center">
             <div className="w-20 h-20 rounded-3xl mb-8 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-primary/30 shadow-[0_0_40px_rgba(var(--primary),0.15)] ring-4 ring-primary/5 p-3 overflow-hidden">
               <div
                 style={{
@@ -92,8 +100,8 @@ export default function SolutionDetail() {
             </div>
             <span className="text-accent font-bold tracking-[0.2em] uppercase mb-4 text-xs bg-accent/10 px-4 py-1.5 rounded-full border border-accent/20">{solution.category} Engine</span>
             <h1 className="text-4xl md:text-7xl font-black mb-6 tracking-tight">{solution.name}</h1>
-            <p className="text-2xl md:text-3xl text-foreground font-semibold mb-6 max-w-3xl leading-tight">{solution.tagline}</p>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">{solution.description}</p>
+            <p className="text-2xl md:text-3xl text-foreground font-semibold mb-6 max-w-5xl leading-tight">{solution.tagline}</p>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto mb-10">{solution.description}</p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" asChild className="h-12 px-8 shadow-lg shadow-primary/20 text-base font-bold rounded-xl">
@@ -190,47 +198,63 @@ export default function SolutionDetail() {
         {/* Global Deterrence Process (The 3-Step) */}
         <div className="py-12 bg-secondary/30 relative overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <div className="text-center mb-10">
                 <h2 className="text-3xl font-black mb-3">Core <span className="text-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Sporada Deterrence</span></h2>
                 <p className="text-muted-foreground text-sm">Our foundation for 100% incident prevention.</p>
               </div>
-              <div className="relative">
+              <div className="relative max-w-7xl mx-auto" ref={timelineRef}>
                 {/* Connecting Line (Timeline track) */}
-                <div className="absolute left-8 top-12 bottom-12 w-0.5 bg-gradient-to-b from-primary/30 via-primary/10 to-transparent hidden md:block" />
+                <div className="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-1 bg-border/40 rounded-full hidden md:block">
+                  <motion.div 
+                    className="absolute top-0 left-0 w-full bg-gradient-to-b from-primary via-primary/80 to-primary/50 shadow-[0_0_15px_rgba(var(--primary),0.5)] rounded-full"
+                    style={{ height: lineHeight }}
+                  />
+                </div>
                 
-                <div className="space-y-8">
+                <div className="space-y-12 md:space-y-24">
                   {globalHowItWorks.map((item, i) => {
                     const StepIcon = Icons[item.icon] || Zap;
+                    const isEven = i % 2 === 0;
+                    
                     return (
                       <motion.div
                         key={i}
-                        initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="relative flex flex-col md:flex-row items-start md:items-center gap-6 p-6 rounded-2xl bg-card border border-border/40 shadow-sm hover:border-primary/30 hover:shadow-lg transition-all group"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        className={`relative flex flex-col md:flex-row items-center gap-6 md:gap-12 group ${isEven ? 'md:flex-row-reverse' : ''}`}
                       >
                         {/* Connecting dot (Mobile & Desktop) */}
-                        <div className="absolute left-8 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 hidden md:flex items-center justify-center -translate-x-[7px] z-10">
-                           <div className="w-1.5 h-1.5 rounded-full bg-background" />
-                        </div>
-                        
-                        {/* Left Side: Icon & Numbering */}
-                        <div className="md:ml-12 shrink-0 flex items-center justify-center relative">
-                          <div className="absolute -inset-2 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-colors" />
-                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300">
-                            <StepIcon className="w-8 h-8 text-primary" />
-                          </div>
-                          
-                          {/* Floating Badge Number */}
-                          <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-md z-20">
-                             <span className="text-primary font-black text-xs">0{item.step}</span>
-                          </div>
+                        <div className="absolute left-8 md:left-1/2 top-12 md:top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-background ring-4 ring-primary/20 hidden md:flex items-center justify-center -translate-x-1/2 z-10">
+                           <motion.div 
+                             className="w-2.5 h-2.5 rounded-full bg-primary" 
+                             initial={{ scale: 0 }}
+                             whileInView={{ scale: 1 }}
+                             viewport={{ once: true, margin: "-150px" }}
+                             transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 20 }}
+                           />
                         </div>
 
-                        {/* Right Side: Text Content */}
-                        <div className="flex-1 pt-2 md:pt-0">
-                          <h3 className="text-xl md:text-2xl font-black mb-2 text-foreground group-hover:text-primary transition-colors">
+                        {/* Half Width Spacer */}
+                        <div className="hidden md:block md:w-1/2" />
+                        
+                        {/* Content Card */}
+                        <div className="relative w-full md:w-1/2 flex flex-col items-center md:items-start p-8 rounded-2xl bg-card border border-border/40 shadow-sm hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all text-center md:text-left">
+                          
+                          {/* Inner Glowing Orb */}
+                          <div className="absolute -inset-2 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/20 transition-colors pointer-events-none" />
+                          
+                          {/* Icon Container */}
+                          <div className="w-16 h-16 mb-6 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 flex items-center justify-center relative z-10 group-hover:scale-110 transition-transform duration-300">
+                            <StepIcon className="w-8 h-8 text-primary" />
+                            {/* Floating Badge Number */}
+                            <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-background border-2 border-primary flex items-center justify-center shadow-md z-20">
+                              <span className="text-primary font-black text-xs">0{item.step}</span>
+                            </div>
+                          </div>
+                          
+                          <h3 className="text-xl md:text-2xl font-black mb-3 text-foreground group-hover:text-primary transition-colors">
                             {item.title}
                           </h3>
                           <p className="text-muted-foreground leading-relaxed">
@@ -252,7 +276,7 @@ export default function SolutionDetail() {
             <h2 className="text-3xl font-bold mb-4">Tactical <span className="text-primary">Capabilities</span></h2>
             <p className="text-muted-foreground">Deep technical features integrated into {solution.name}.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 max-w-7xl mx-auto">
             {solution.features.map((feature, i) => (
               <motion.div
                 key={i}
@@ -330,7 +354,7 @@ export default function SolutionDetail() {
           <div className="py-12 bg-background border-t border-border/40 text-center">
             <div className="container mx-auto px-4">
               <h2 className="text-3xl font-black mb-12 uppercase tracking-wide">Deployment <span className="text-primary">Verticles</span></h2>
-              <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+              <div className="flex flex-wrap justify-center gap-4 max-w-7xl mx-auto">
                 {relatedIndustries.map((ind, i) => {
                   const IndIcon = Icons[ind.icon] || Icons.Briefcase;
                   return (

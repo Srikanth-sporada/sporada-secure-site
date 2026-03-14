@@ -42,11 +42,11 @@ export default function IndustryDetail() {
       <div className="min-h-screen bg-background">
         
         {/* Industry Hero */}
-        <div className="relative pt-24 pb-12 border-b border-border/40 overflow-hidden text-center px-4 bg-gradient-to-b from-card/50 to-background">
+        <div className="relative pt-20 pb-8 border-b border-border/40 overflow-hidden text-center px-4 bg-gradient-to-b from-card/50 to-background">
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }} />
           
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="relative z-10 w-full flex flex-col items-center px-4 md:px-12 lg:px-24">
             <div className="w-16 h-16 rounded-2xl mb-6 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border border-primary/30 shadow-xl ring-4 ring-primary/5">
                <HeroIcon className="w-8 h-8 text-primary" />
             </div>
@@ -73,15 +73,15 @@ export default function IndustryDetail() {
         </div>
 
         {/* Overview & Strategic Value */}
-        <div className="py-12 container mx-auto px-4 md:px-8">
-           <div className="max-w-4xl mx-auto text-center md:text-left grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+        <div className="py-8 w-full px-4 md:px-12 lg:px-24">
+           <div className="w-full text-center md:text-left grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
               <div className="md:col-span-7">
                 <h2 className="text-2xl font-bold mb-4 uppercase tracking-tighter">Sector <span className="text-primary font-black">Intelligence</span> Overview</h2>
                 <p className="text-lg text-foreground italic font-medium leading-relaxed border-l-4 border-primary pl-6 py-2 bg-primary/5 rounded-r-xl">
                   {industry.overview}
                 </p>
               </div>
-              <div className="md:col-span-5 bg-card/40 border border-border/60 p-8 rounded-3xl relative overflow-hidden group">
+              <div className="md:col-span-5 bg-card/40 border border-border/60 p-6 rounded-3xl relative overflow-hidden group">
                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
                  <div className="relative z-10">
                     <div className="text-4xl font-black text-primary mb-1">{industry.costSaving || "60%"}</div>
@@ -94,13 +94,13 @@ export default function IndustryDetail() {
         </div>
 
         {/* Industry Challenges Section */}
-        <div className="py-12 bg-secondary/10">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-10">
+        <div className="py-8 bg-secondary/10 px-4 md:px-12 lg:px-24">
+          <div className="w-full">
+            <div className="text-center mb-6">
                <h2 className="text-3xl font-black mb-3 text-destructive uppercase tracking-tight">Vulnerabilities & <span className="text-foreground">Critical Challenges</span></h2>
                <p className="text-muted-foreground text-sm">Identifying the specific threats and operational gaps in the {industry.name} sector.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               {(industry.challenges || []).map((challenge, i) => (
                 <motion.div 
                   key={i}
@@ -119,12 +119,12 @@ export default function IndustryDetail() {
         </div>
 
         {/* What We Do (Strategic Mapping) */}
-        <div className="py-12 container mx-auto px-4 md:px-12">
-            <div className="text-center mb-10">
+        <div className="py-8 w-full px-4 md:px-12 lg:px-24">
+            <div className="text-center mb-6">
               <h2 className="text-3xl font-black mb-3">Our <span className="text-primary uppercase">Tactical Response</span></h2>
               <p className="text-muted-foreground text-sm">How Sporada AI strategically counters these vulnerabilities.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
               {(industry.whatWeDo || []).map((item, i) => (
                 <motion.div 
                   key={i}
@@ -147,13 +147,13 @@ export default function IndustryDetail() {
 
         {/* Healthcare Specific: keyFeatures Grid */}
         {industry.keyFeatures && (
-          <div className="py-12 bg-background border-y border-border/40">
-             <div className="container mx-auto px-4">
-                <div className="text-center mb-10">
+          <div className="py-8 bg-background border-y border-border/40 px-4 md:px-12 lg:px-24">
+             <div className="w-full">
+                <div className="text-center mb-6">
                   <h2 className="text-2xl font-black mb-2 uppercase italic tracking-tighter">Clinical & <span className="text-primary">Operational Modules</span></h2>
                   <p className="text-muted-foreground text-xs uppercase tracking-widest font-bold">16+ Specialized AI Sensors for Healthcare</p>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
                    {industry.keyFeatures.map((feat, i) => (
                      <div key={i} className="p-3 rounded-lg bg-card border border-border/60 text-center flex flex-col items-center justify-center group hover:border-primary/40 hover:bg-primary/5 transition-all aspect-square md:aspect-auto md:h-24">
                         <Icons.Activity className="w-4 h-4 text-primary/30 group-hover:text-primary mb-2 transition-colors" />
@@ -167,8 +167,8 @@ export default function IndustryDetail() {
 
         {/* Education Specific: COVID SOP Package */}
         {industry.covidSopPackage && (
-          <div className="py-12 container mx-auto px-4 md:px-8">
-             <div className="max-w-4xl mx-auto bg-primary/10 border-2 border-primary/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          <div className="py-8 w-full px-4 md:px-12 lg:px-24">
+             <div className="w-full bg-primary/10 border-2 border-primary/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
                    <div className="flex-1">
@@ -194,13 +194,13 @@ export default function IndustryDetail() {
         )}
 
         {/* Deployment Benefits Grid */}
-        <div className="py-12 bg-secondary/20 border-t border-border/40">
-           <div className="container mx-auto px-4">
-              <div className="text-center mb-10">
+        <div className="py-8 bg-secondary/20 border-t border-border/40 px-4 md:px-12 lg:px-24">
+           <div className="w-full">
+              <div className="text-center mb-6">
                 <h2 className="text-3xl font-black uppercase italic tracking-tight">Sector <span className="text-emerald-500">Stability Benefits</span></h2>
                 <p className="text-muted-foreground text-sm">Long-term value metrics calculated across 500+ site deployments.</p>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
                 {(industry.benefits || []).map((benefit, i) => (
                   <motion.div 
                     key={i}
@@ -218,12 +218,12 @@ export default function IndustryDetail() {
         </div>
 
         {/* Core Solution Connectivity */}
-        <div className="py-12 container mx-auto px-4 md:px-8">
-           <div className="text-center mb-10">
+        <div className="py-8 w-full px-4 md:px-12 lg:px-24">
+           <div className="text-center mb-6">
               <h2 className="text-3xl font-black">Strategic <span className="text-primary italic">AI Stack</span></h2>
               <p className="text-muted-foreground text-sm uppercase tracking-widest font-bold">Recommended Solutions for {industry.name}</p>
            </div>
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {relatedSolutions.map((sol, i) => {
                  const SolIcon = Icons[sol.icon] || Icons.Shield;
                  return (
@@ -261,9 +261,9 @@ export default function IndustryDetail() {
         </div>
 
         {/* Final Industry CTA */}
-        <div className="py-12 bg-primary relative overflow-hidden">
+        <div className="py-8 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(45deg, white 25%, transparent 25%, transparent 50%, white 50%, white 75%, transparent 75%, transparent 100%)', backgroundSize: '40px 40px' }} />
-          <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="w-full px-4 md:px-12 lg:px-24 text-center relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Secure your {industry.name} facilities globally.</h2>
             <p className="text-white/80 mb-8 max-w-2xl mx-auto font-medium">Join leading organizations who have reduced their liability and operational costs by up to 70% using Sporada AI.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">

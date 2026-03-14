@@ -8,14 +8,14 @@ export function IndustriesGrid() {
   return (
     <section className="py-16 bg-background">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
-          <div className="max-w-2xl">
+        <div className="flex flex-col items-center text-center justify-center mb-12 gap-6">
+          <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Industries We <span className="text-primary">Secure</span></h2>
             <p className="text-muted-foreground text-lg">
               Every vertical has unique vulnerabilities. Our AI models are trained on millions of hours of industry-specific footage to provide targeted protection.
             </p>
           </div>
-          <Link to="/industries" className="text-primary hover:text-foreground font-semibold flex items-center group transition-colors">
+          <Link to="/industries" className="text-primary hover:text-foreground font-semibold flex items-center justify-center group transition-colors mt-2">
             View All Industries
             <Icons.ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

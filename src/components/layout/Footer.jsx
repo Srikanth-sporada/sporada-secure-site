@@ -11,28 +11,28 @@ import privacyPdf from "@/assets/Privacy-Policy-Template.pdf";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/50 border-t border-border/60 py-8 relative overflow-hidden">
+    <footer className="bg-secondary/50 border-t border-border/60 py-1 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-2 text-center sm:text-left">
 
           {/* Brand Col */}
-          <div className="space-y-4 flex flex-col items-center sm:items-start">
+          <div className=" flex flex-col items-center sm:items-start">
             <Link to="/" className="inline-flex justify-center sm:justify-start">
-              <img src={footerLogo} alt="Sporada Secure" className="h-32 sm:h-40 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+              <img src={footerLogo} alt="Sporada Secure" className="h-44 w-auto object-contain transition-transform duration-300 hover:scale-105" />
             </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto sm:mx-0">
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto sm:mx-0 -mt-3 leading-8">
               India's Most Trusted e-Surveillance Platform. Save up to 60% on security costs with AI-powered live video surveillance and advanced cloud analytics.
             </p>
           </div>
 
           {/* Quick Links Col */}
-          <div className="flex flex-col items-center sm:items-start">
+          <div className="flex flex-col items-center sm:items-start mt-10">
             <h3 className="font-semibold text-foreground mb-4">Company</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-[0.75rem]">
               {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.path} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={link.path} className="text-sm text-black hover:text-primary transition-colors">
                     {link.name}
                   </Link>
                 </li>
@@ -41,12 +41,12 @@ export function Footer() {
           </div>
 
           {/* Solutions Col */}
-          <div className="flex flex-col items-center sm:items-start">
+          <div className="flex flex-col items-center sm:items-start mt-10">
             <h3 className="font-semibold text-foreground mb-4">Top Solutions</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-5">
               {solutions.slice(0, 5).map((sol) => (
                 <li key={sol.id}>
-                  <Link to={`/solutions/${sol.slug}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  <Link to={`/solutions/${sol.slug}`} className="text-sm text-black hover:text-primary transition-colors">
                     {sol.name}
                   </Link>
                 </li>
@@ -55,21 +55,21 @@ export function Footer() {
           </div>
 
           {/* Contact Col */}
-          <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+          <div className="flex flex-col items-center sm:items-start text-center sm:text-left mt-10">
             <h3 className="font-semibold text-foreground mb-4">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-muted-foreground max-w-xs mx-auto sm:mx-0">
+            <ul className="space-y-[1.75rem]">
+              <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-black max-w-xs mx-auto sm:mx-0">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 text-center" />
                 <span className="text-start" >687/7, Trichy Road, Ramanathapuram, Coimbatore – 641045, Tamil Nadu, India</span>
               </li>
-              <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-muted-foreground">
+              <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-black">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
                 <div className="flex flex-col">
                   <span>+91-422-231-2363</span>
                   <span>+91-739-975-0001</span>
                 </div>
               </li>
-              <li className="flex items-center justify-start sm:justify-start space-x-3 text-sm text-muted-foreground">
+              <li className="flex items-center justify-start sm:justify-start space-x-3 text-sm text-black">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
                 <span>sales@sporadasecure.com</span>
               </li>
@@ -79,7 +79,7 @@ export function Footer() {
         </div>
 
         {/* Sub-footer */}
-        <div className="border-t border-border/40 pt-4 flex flex-col items-center space-y-6 text-xs text-muted-foreground text-center">
+        <div className="border-t border-border/40 pt-4 flex flex-col items-center space-y-4 text-xs text-muted-foreground text-center">
 
           <div className="flex items-center justify-center gap-4 sm:gap-6 flex-wrap">
             <a href="https://facebook.com/sporadasecure" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
@@ -113,7 +113,7 @@ export function Footer() {
             . All rights reserved.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
             <a href={privacyPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Privacy Policy</a>
             <a href={termsPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Terms of Service</a>
             <a href={refundPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Refund Policy</a>

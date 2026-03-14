@@ -25,7 +25,7 @@ export default function About() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto mb-12"
+            className="text-center max-w-7xl mx-auto mb-12"
           >
             <h1 className="text-4xl md:text-6xl font-black mb-6">Your Trusted <span className="text-primary">eSurveillance Partner</span></h1>
             <p className="text-lg md:text-xl text-muted-foreground">
@@ -117,7 +117,7 @@ export default function About() {
 
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">The principles that drive our engineering, operations, and client relationships.</p>
+            <p className="text-muted-foreground max-w-7xl mx-auto">The principles that drive our engineering, operations, and client relationships.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
