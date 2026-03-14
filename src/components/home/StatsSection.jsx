@@ -11,7 +11,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="py-16 relative bg-background overflow-hidden border-b border-border/40">
+    <section className="py-12 relative bg-background overflow-hidden border-b border-border/40">
       {/* Subtle decorative background blur for premium depth */}
       <div className="absolute top-0 right-0 w-1/3 h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-1/3 h-[500px] bg-accent/5 rounded-full blur-[100px] translate-y-1/2 pointer-events-none" />

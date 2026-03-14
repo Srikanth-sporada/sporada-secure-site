@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function CTABanner() {
   return (
-    <section className="py-20 relative overflow-hidden bg-primary">
+    <section className="py-16 relative overflow-hidden bg-primary">
       {/* Abstract geometric background elements */}
       <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:20px_20px]" />
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 opacity-50 mix-blend-screen" />

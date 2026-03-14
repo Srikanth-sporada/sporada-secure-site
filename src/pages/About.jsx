@@ -19,13 +19,13 @@ export default function About() {
         title="About Us" 
         description="Founded in 2014, Sporada Secure is India's leading virtual security company protecting over 3500 clients globally."
       />
-      <div className="min-h-screen bg-background pt-24 pb-20">
+      <div className="min-h-screen bg-background pt-16 pb-12">
         <div className="container mx-auto px-4 md:px-8">
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center max-w-4xl mx-auto mb-20"
+            className="text-center max-w-4xl mx-auto mb-12"
           >
             <h1 className="text-4xl md:text-6xl font-black mb-6">Your Trusted <span className="text-primary">eSurveillance Partner</span></h1>
             <p className="text-lg md:text-xl text-muted-foreground">
@@ -33,7 +33,7 @@ export default function About() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-16">
             <motion.div 
               initial={{ opacity: 0, x: -30 }} 
               animate={{ opacity: 1, x: 0 }} 

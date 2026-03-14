@@ -6,9 +6,9 @@ import * as Icons from "lucide-react";
 
 export function IndustriesGrid() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-16 bg-background">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
           <div className="max-w-2xl">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">Industries We <span className="text-primary">Secure</span></h2>
             <p className="text-muted-foreground text-lg">

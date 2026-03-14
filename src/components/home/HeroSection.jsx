@@ -13,7 +13,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">
       {/* Cinematic Background Layer */}
       <div className="absolute inset-0 z-0 text-white">
         <img

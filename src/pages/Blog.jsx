@@ -30,7 +30,7 @@ const blogPosts = [
 
 export default function Blog() {
   return (
-    <div className="pt-24 pb-20 min-h-screen bg-background">
+    <div className="pt-16 pb-12 min-h-screen bg-background">
       <SEOHead 
         title="Blog | Sporada Secure" 
         description="Stay updated with the latest in AI surveillance, e-surveillance, and video analytics from the experts at Sporada Secure."
@@ -41,7 +41,7 @@ export default function Blog() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-10"
         >
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-wider mb-4">
             <Newspaper className="w-3 h-3" />
@@ -83,7 +83,7 @@ export default function Blog() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 p-8 md:p-12 rounded-3xl bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8"
+          className="mt-12 p-8 md:p-12 rounded-3xl bg-primary/5 border border-primary/10 flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-8"
         >
           <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">Subscribe to our newsletter</h2>

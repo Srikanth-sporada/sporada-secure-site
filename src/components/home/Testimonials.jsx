@@ -5,11 +5,11 @@ import { Quote } from "lucide-react";
 
 export function Testimonials() {
   return (
-    <section className="py-24 bg-background border-t border-border/40 relative overflow-hidden">
+    <section className="py-16 bg-background border-t border-border/40 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/3 h-[500px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none" />
       
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Client <span className="text-primary">Success Stories</span></h2>
           <p className="text-muted-foreground text-lg">
             Hear from industry leaders who have transformed their operations and secured their assets with Sporada Secure.

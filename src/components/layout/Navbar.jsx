@@ -53,7 +53,7 @@ export function Navbar() {
               <img
                 src={headerLogo}
                 alt="Sporada Secure"
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105 object-contain"
               />
             </Link>
           </motion.div>
@@ -156,7 +156,7 @@ export function Navbar() {
                           to={link.path}
                           className="flex items-center space-x-5 group"
                         >
-                          <span className={`text-[10px] font-mono tracking-widest opacity-30 group-hover:opacity-100 transition-opacity ${isActive ? "opacity-100 text-primary" : "text-muted-foreground"}`}>
+                          <span className={`text-[12px] font-mono tracking-widest transition-colors ${isActive ? "text-primary font-bold" : "text-foreground/70 font-bold group-hover:text-primary"}`}>
                             0{index + 1}
                           </span>
                           <div className="relative overflow-hidden">

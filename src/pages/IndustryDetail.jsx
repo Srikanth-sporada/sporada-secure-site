@@ -42,7 +42,7 @@ export default function IndustryDetail() {
       <div className="min-h-screen bg-background">
         
         {/* Industry Hero */}
-        <div className="relative pt-32 pb-16 border-b border-border/40 overflow-hidden text-center px-4 bg-gradient-to-b from-card/50 to-background">
+        <div className="relative pt-24 pb-12 border-b border-border/40 overflow-hidden text-center px-4 bg-gradient-to-b from-card/50 to-background">
           <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }} />
           
@@ -73,7 +73,7 @@ export default function IndustryDetail() {
         </div>
 
         {/* Overview & Strategic Value */}
-        <div className="py-16 container mx-auto px-4 md:px-8">
+        <div className="py-12 container mx-auto px-4 md:px-8">
            <div className="max-w-4xl mx-auto text-center md:text-left grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
               <div className="md:col-span-7">
                 <h2 className="text-2xl font-bold mb-4 uppercase tracking-tighter">Sector <span className="text-primary font-black">Intelligence</span> Overview</h2>
@@ -94,7 +94,7 @@ export default function IndustryDetail() {
         </div>
 
         {/* Industry Challenges Section */}
-        <div className="py-16 bg-secondary/10">
+        <div className="py-12 bg-secondary/10">
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
                <h2 className="text-3xl font-black mb-3 text-destructive uppercase tracking-tight">Vulnerabilities & <span className="text-foreground">Critical Challenges</span></h2>
@@ -119,7 +119,7 @@ export default function IndustryDetail() {
         </div>
 
         {/* What We Do (Strategic Mapping) */}
-        <div className="py-16 container mx-auto px-4 md:px-12">
+        <div className="py-12 container mx-auto px-4 md:px-12">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-black mb-3">Our <span className="text-primary uppercase">Tactical Response</span></h2>
               <p className="text-muted-foreground text-sm">How Sporada AI strategically counters these vulnerabilities.</p>
@@ -147,7 +147,7 @@ export default function IndustryDetail() {
 
         {/* Healthcare Specific: keyFeatures Grid */}
         {industry.keyFeatures && (
-          <div className="py-16 bg-background border-y border-border/40">
+          <div className="py-12 bg-background border-y border-border/40">
              <div className="container mx-auto px-4">
                 <div className="text-center mb-10">
                   <h2 className="text-2xl font-black mb-2 uppercase italic tracking-tighter">Clinical & <span className="text-primary">Operational Modules</span></h2>
@@ -167,7 +167,7 @@ export default function IndustryDetail() {
 
         {/* Education Specific: COVID SOP Package */}
         {industry.covidSopPackage && (
-          <div className="py-16 container mx-auto px-4 md:px-8">
+          <div className="py-12 container mx-auto px-4 md:px-8">
              <div className="max-w-4xl mx-auto bg-primary/10 border-2 border-primary/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
                 <div className="relative z-10 flex flex-col md:flex-row items-center gap-10">
@@ -194,7 +194,7 @@ export default function IndustryDetail() {
         )}
 
         {/* Deployment Benefits Grid */}
-        <div className="py-16 bg-secondary/20 border-t border-border/40">
+        <div className="py-12 bg-secondary/20 border-t border-border/40">
            <div className="container mx-auto px-4">
               <div className="text-center mb-10">
                 <h2 className="text-3xl font-black uppercase italic tracking-tight">Sector <span className="text-emerald-500">Stability Benefits</span></h2>
@@ -218,7 +218,7 @@ export default function IndustryDetail() {
         </div>
 
         {/* Core Solution Connectivity */}
-        <div className="py-16 container mx-auto px-4 md:px-8">
+        <div className="py-12 container mx-auto px-4 md:px-8">
            <div className="text-center mb-10">
               <h2 className="text-3xl font-black">Strategic <span className="text-primary italic">AI Stack</span></h2>
               <p className="text-muted-foreground text-sm uppercase tracking-widest font-bold">Recommended Solutions for {industry.name}</p>
@@ -261,7 +261,7 @@ export default function IndustryDetail() {
         </div>
 
         {/* Final Industry CTA */}
-        <div className="py-16 bg-primary relative overflow-hidden">
+        <div className="py-12 bg-primary relative overflow-hidden">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(45deg, white 25%, transparent 25%, transparent 50%, white 50%, white 75%, transparent 75%, transparent 100%)', backgroundSize: '40px 40px' }} />
           <div className="container mx-auto px-4 text-center relative z-10">
             <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Secure your {industry.name} facilities globally.</h2>

@@ -31,9 +31,9 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section className="py-10 bg-background relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-4 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">Proactive Security in <span className="text-primary">4 Steps</span></h2>
           <p className="text-muted-foreground text-lg">
             We don't just record crimes; our smart AI and highly-trained remote operators actively prevent them from happening.
@@ -52,7 +52,7 @@ export function HowItWorks() {
               <Card className="bg-card/40 border-border/50 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 group h-full relative overflow-hidden">
                 {/* Subtle glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 <CardHeader className="relative z-10 text-center pb-2 pt-8">
                   <div className="w-16 h-16 mx-auto bg-background rounded-full flex items-center justify-center border border-border shadow-inner mb-4 group-hover:scale-110 transition-transform duration-300">
                     {step.icon}

@@ -7,6 +7,34 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import * as Icons from "lucide-react";
 
+import secure360Img from '@/assets/secure-360.png';
+import securePatrolImg from '@/assets/secure-patrol.png';
+import secureRetailImg from '@/assets/secure-retail.png';
+import secureSafetyImg from '@/assets/secure-safety.png';
+import secureCleanImg from '@/assets/secure-clean.png';
+import secureCheckImg from '@/assets/secure-check.png';
+import retailAnalyticsImg from '@/assets/secure-analytics.png';
+import secureCareImg from '@/assets/secure-care.png';
+import secure247Img from '@/assets/secure_24x7.png';
+import secureAttendanceImg from '@/assets/secure-attendance.png';
+import secureSenseImg from '@/assets/secure-sense.png';
+import secureTrackImg from '@/assets/secure-track.png';
+
+const solutionImages = {
+  "secure-360": secure360Img,
+  "secure-patrol": securePatrolImg,
+  "secure-retail": secureRetailImg,
+  "secure-safety-analytics": secureSafetyImg,
+  "secure-clean": secureCleanImg,
+  "secure-check": secureCheckImg,
+  "retail-analytics": retailAnalyticsImg,
+  "secure-care": secureCareImg,
+  "secure-247": secure247Img,
+  "secure-attendance": secureAttendanceImg,
+  "secure-sense": secureSenseImg,
+  "secure-track": secureTrackImg,
+};
+
 export default function Solutions() {
   const categories = ["All", ...new Set(solutions.map((s) => s.category))];
   const [activeCategory, setActiveCategory] = useState("All");
@@ -21,10 +49,10 @@ export default function Solutions() {
         title="Our Solutions" 
         description="Explore Sporada Secure's comprehensive suite of AI video analytics and surveillance solutions, from perimeter defense to retail analytics."
       />
-      <div className="min-h-screen bg-background pt-24 pb-24">
+      <div className="min-h-screen bg-background pt-16 pb-16">
         <div className="container mx-auto px-4 md:px-8">
           
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <motion.h1 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-black mb-6"
@@ -39,7 +67,7 @@ export default function Solutions() {
             </motion.p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
             {categories.map((cat) => (
               <Button
                 key={cat}
@@ -55,7 +83,6 @@ export default function Solutions() {
           <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout">
               {filteredSolutions.map((sol) => {
-                const IconComponent = Icons[sol.icon] || Icons.Shield;
                 return (
                   <motion.div
                     key={sol.id}
@@ -70,8 +97,21 @@ export default function Solutions() {
                       <Card className="h-full bg-card/60 backdrop-blur-md border border-border/50 group-hover:border-primary/50 transition-all duration-300">
                         <CardContent className="p-8">
                           <div className="flex items-center justify-between mb-6">
-                            <div className="w-14 h-14 rounded-lg bg-background flex items-center justify-center text-primary border border-border group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                              <IconComponent className="w-7 h-7" />
+                            <div className="w-14 h-14 rounded-lg bg-background flex items-center justify-center border border-border group-hover:bg-primary transition-colors duration-300 overflow-hidden p-2">
+                              <div
+                                style={{
+                                  WebkitMaskImage: `url(${solutionImages[sol.slug]})`,
+                                  WebkitMaskSize: "contain",
+                                  WebkitMaskRepeat: "no-repeat",
+                                  WebkitMaskPosition: "center",
+                                  maskImage: `url(${solutionImages[sol.slug]})`,
+                                  maskSize: "contain",
+                                  maskRepeat: "no-repeat",
+                                  maskPosition: "center",
+                                }}
+                                className="w-full h-full bg-primary group-hover:bg-white group-hover:scale-110 transition-transform duration-300"
+                                aria-label={sol.name}
+                              />
                             </div>
                             <span className="text-xs font-semibold bg-background border border-border px-3 py-1 rounded-full text-muted-foreground">
                               {sol.category}

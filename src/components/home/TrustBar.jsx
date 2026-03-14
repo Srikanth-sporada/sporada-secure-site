@@ -19,7 +19,7 @@ export function TrustBar() {
         <div className="absolute inset-0 w-32 right-0 z-10 bg-gradient-to-l from-card to-transparent" />
 
         <motion.div
-          className="flex whitespace-nowrap gap-16 py-4 items-center"
+          className="flex whitespace-nowrap gap-10 py-4 items-center"
           animate={{ x: [0, -1000] }}
           transition={{
             repeat: Infinity,

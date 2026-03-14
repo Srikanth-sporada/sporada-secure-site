@@ -3,7 +3,7 @@ import { navLinks } from "@/data/navigation";
 import { ShieldCheck, Mail, Phone, MapPin } from "lucide-react";
 import { industries } from "@/data/industries";
 import { solutions } from "@/data/solutions";
-import footerLogo from "@/assets/sporada_secure_logo.png";
+import footerLogo from "@/assets/sporada_square.png";
 import favicon from "@/assets/favicon.png";
 import termsPdf from "@/assets/Termsandconditions.pdf";
 import refundPdf from "@/assets/refund&cancellation.pdf";
@@ -19,7 +19,7 @@ export function Footer() {
           {/* Brand Col */}
           <div className="space-y-4 flex flex-col items-center sm:items-start">
             <Link to="/" className="inline-flex justify-center sm:justify-start">
-              <img src={footerLogo} alt="Sporada Secure" className="h-10 sm:h-20 w-auto" />
+              <img src={footerLogo} alt="Sporada Secure" className="h-32 sm:h-40 w-auto object-contain transition-transform duration-300 hover:scale-105" />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto sm:mx-0">
               India's Most Trusted e-Surveillance Platform. Save up to 60% on security costs with AI-powered live video surveillance and advanced cloud analytics.

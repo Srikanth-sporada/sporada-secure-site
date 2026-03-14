@@ -6,6 +6,34 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import * as Icons from "lucide-react";
 
+import secure360Img from '@/assets/secure-360.png';
+import securePatrolImg from '@/assets/secure-patrol.png';
+import secureRetailImg from '@/assets/secure-retail.png';
+import secureSafetyImg from '@/assets/secure-safety.png';
+import secureCleanImg from '@/assets/secure-clean.png';
+import secureCheckImg from '@/assets/secure-check.png';
+import retailAnalyticsImg from '@/assets/secure-analytics.png';
+import secureCareImg from '@/assets/secure-care.png';
+import secure247Img from '@/assets/secure_24x7.png';
+import secureAttendanceImg from '@/assets/secure-attendance.png';
+import secureSenseImg from '@/assets/secure-sense.png';
+import secureTrackImg from '@/assets/secure-track.png';
+
+const solutionImages = {
+  "secure-360": secure360Img,
+  "secure-patrol": securePatrolImg,
+  "secure-retail": secureRetailImg,
+  "secure-safety-analytics": secureSafetyImg,
+  "secure-clean": secureCleanImg,
+  "secure-check": secureCheckImg,
+  "retail-analytics": retailAnalyticsImg,
+  "secure-care": secureCareImg,
+  "secure-247": secure247Img,
+  "secure-attendance": secureAttendanceImg,
+  "secure-sense": secureSenseImg,
+  "secure-track": secureTrackImg,
+};
+
 const categories = ["All", ...new Set(solutions.map((s) => s.category))];
 
 export function SolutionsShowcase() {
@@ -16,9 +44,9 @@ export function SolutionsShowcase() {
     : solutions.filter((s) => s.category === activeCategory);
 
   return (
-    <section className="py-24 bg-card/50 relative">
+    <section className="py-16 bg-card/50 relative">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Explore Our <span className="text-primary">Solutions</span></h2>
           <p className="text-muted-foreground text-lg">
             Purpose-built intelligent solutions designed to provide ultimate protection, ensure compliance, and unlock actionable analytics.
@@ -43,7 +71,6 @@ export function SolutionsShowcase() {
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredSolutions.map((sol) => {
-              const IconComponent = Icons[sol.icon] || Icons.Shield;
               
               return (
                 <motion.div
@@ -57,8 +84,21 @@ export function SolutionsShowcase() {
                   <Link to={`/solutions/${sol.slug}`} className="block h-full group outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl">
                     <Card className="h-full bg-background border-border/50 hover:border-primary/50 relative overflow-hidden transition-all duration-300">
                       <CardContent className="p-6">
-                        <div className="w-12 h-12 rounded-lg bg-card flex items-center justify-center mb-6 text-primary border border-border group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                          <IconComponent className="w-6 h-6" />
+                        <div className="w-12 h-12 rounded-lg bg-card flex items-center justify-center mb-6 border border-border group-hover:bg-primary transition-colors duration-300 p-1.5 overflow-hidden">
+                          <div
+                            style={{
+                              WebkitMaskImage: `url(${solutionImages[sol.slug]})`,
+                              WebkitMaskSize: "contain",
+                              WebkitMaskRepeat: "no-repeat",
+                              WebkitMaskPosition: "center",
+                              maskImage: `url(${solutionImages[sol.slug]})`,
+                              maskSize: "contain",
+                              maskRepeat: "no-repeat",
+                              maskPosition: "center",
+                            }}
+                            className="w-full h-full bg-primary group-hover:bg-white transition-colors duration-300"
+                            aria-label={sol.name}
+                          />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{sol.name}</h3>
                         <p className="text-sm font-medium text-muted-foreground mb-3">{sol.tagline}</p>
