@@ -14,8 +14,8 @@ export default {
         DEFAULT: '1rem',
         sm: '1.5rem',
         md: '2rem',
-        lg: '4rem',
-        xl: '6rem',
+        lg: '10rem',
+        xl: '10rem',
         '2xl': '10vw',
       },
       screens: {

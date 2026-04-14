@@ -9,21 +9,21 @@ import * as Icons from "lucide-react";
 export default function Industries() {
   return (
     <>
-      <SEOHead 
-        title="Industries We Secure" 
+      <SEOHead
+        title="Industries We Secure"
         description="Discover how Sporada Secure protects various industries including Retail, Logistics, Healthcare, and BFSI with tailored AI video analytics."
       />
-      <div className="min-h-screen bg-background pt-16 pb-16">
+      <div className="min-h-screen bg-background py-32">
         <div className="container mx-auto px-4 md:px-8">
-          
+
           <div className="text-center max-w-7xl mx-auto mb-10">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-black mb-6"
             >
               Tailored Security For <span className="text-accent text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Every Vertical</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               className="text-lg text-muted-foreground"
             >

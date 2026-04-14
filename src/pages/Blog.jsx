@@ -31,13 +31,13 @@ const blogPosts = [
 export default function Blog() {
   return (
     <div className="pt-16 pb-12 min-h-screen bg-background">
-      <SEOHead 
-        title="Blog | Sporada Secure" 
+      <SEOHead
+        title="Blog | Sporada Secure"
         description="Stay updated with the latest in AI surveillance, e-surveillance, and video analytics from the experts at Sporada Secure."
       />
-      
-      <div className="container mx-auto px-4 md:px-8">
-        <motion.div 
+
+      <div className="container mx-auto pt-16">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -79,7 +79,7 @@ export default function Blog() {
           ))}
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -90,9 +90,9 @@ export default function Blog() {
             <p className="text-muted-foreground">Receive the latest security whitepapers and industry trends directly in your inbox.</p>
           </div>
           <div className="flex flex-col sm:flex-row w-full md:w-auto gap-4">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
+            <input
+              type="email"
+              placeholder="Enter your email"
               className="px-6 py-3 rounded-xl bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-64"
             />
             <Button size="lg">Subscribe Now</Button>

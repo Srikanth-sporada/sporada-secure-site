@@ -52,9 +52,9 @@ export default function Contact() {
         title="Contact Us"
         description="Get in touch with Sporada Secure for a free demo or consultation on how AI video analytics can protect your business."
       />
-      <div className="min-h-screen bg-background pt-28 pb-4">
+      <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto items-start">
 
             {/* Contact Info Col */}
             <motion.div

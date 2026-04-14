@@ -39,8 +39,8 @@ const categories = ["All", ...new Set(solutions.map((s) => s.category))];
 export function SolutionsShowcase() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredSolutions = activeCategory === "All" 
-    ? solutions 
+  const filteredSolutions = activeCategory === "All"
+    ? solutions
     : solutions.filter((s) => s.category === activeCategory);
 
   return (
@@ -71,7 +71,7 @@ export function SolutionsShowcase() {
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           <AnimatePresence mode="popLayout">
             {filteredSolutions.map((sol) => {
-              
+
               return (
                 <motion.div
                   key={sol.id}
@@ -84,7 +84,7 @@ export function SolutionsShowcase() {
                   <Link to={`/solutions/${sol.slug}`} className="block h-full group outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-xl">
                     <Card className="h-full bg-background border-border/50 hover:border-primary/50 relative overflow-hidden transition-all duration-300">
                       <CardContent className="p-6">
-                        <div className="w-12 h-12 rounded-lg bg-card flex items-center justify-center mb-6 border border-border group-hover:bg-primary transition-colors duration-300 p-1.5 overflow-hidden">
+                        <div className="w-12 h-12 rounded-lg bg-card flex items-center justify-center mb-6 border border-border transition-colors duration-300 p-1.5 overflow-hidden">
                           <div
                             style={{
                               WebkitMaskImage: `url(${solutionImages[sol.slug]})`,
@@ -96,7 +96,7 @@ export function SolutionsShowcase() {
                               maskRepeat: "no-repeat",
                               maskPosition: "center",
                             }}
-                            className="w-full h-full bg-primary group-hover:bg-white transition-colors duration-300"
+                            className="w-full h-full bg-primary duration-300"
                             aria-label={sol.name}
                           />
                         </div>

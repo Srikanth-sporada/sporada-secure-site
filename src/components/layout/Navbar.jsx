@@ -4,7 +4,7 @@ import { ShieldCheck, X, Phone, MapPin, ScanFace } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "@/data/navigation";
 import { Button } from "@/components/ui/button";
-import headerLogo from "@/assets/leaf.jpg";
+import headerLogo from "@/assets/sporada_secure_logo.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +49,7 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <Link to="/" className="flex items-center group">
+            <Link to="/" className="flex items-center group" aria-label="Sporada Secure Home">
               <img
                 src={headerLogo}
                 alt="Sporada Secure"
@@ -107,6 +107,7 @@ export function Navbar() {
             className="md:hidden p-2 text-foreground relative z-50 rounded-xl hover:bg-secondary/80 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />

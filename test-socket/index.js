@@ -19,7 +19,7 @@ io.on('connection', (socket) => {
 
   socket.on('message', (data) => {
     console.log('Message received from session:', data.sessionId, 'content:', data.text);
-    
+
     // Echo the message back or send a custom response
     setTimeout(() => {
       socket.emit('message', {
@@ -40,3 +40,4 @@ const PORT = 4000;
 httpServer.listen(PORT, () => {
   console.log(`WhatsApp Test Socket Server running on http://localhost:${PORT}`);
 });
+

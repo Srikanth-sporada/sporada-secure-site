@@ -19,7 +19,14 @@ export function Footer() {
           {/* Brand Col */}
           <div className=" flex flex-col items-center sm:items-start">
             <Link to="/" className="inline-flex justify-center sm:justify-start">
-              <img src={footerLogo} alt="Sporada Secure" className="h-44 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+              <img
+                src={footerLogo}
+                alt="Sporada Secure"
+                width="176"
+                height="176"
+                className="h-44 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                loading="lazy"
+              />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mx-auto sm:mx-0 -mt-3 leading-8">
               India's Most Trusted e-Surveillance Platform. Save up to 60% on security costs with AI-powered live video surveillance and advanced cloud analytics.
@@ -28,10 +35,10 @@ export function Footer() {
 
           {/* Quick Links Col */}
           <div className="flex flex-col items-center sm:items-start mt-10">
-            <h3 className="font-semibold text-foreground mb-4">Company</h3>
+            <h3 className="font-semibold text-foreground mb-2">Company</h3>
             <ul className="space-y-[0.75rem]">
               {navLinks.map((link) => (
-                <li key={link.name}>
+                <li key={link.name} className="!mt-2">
                   <Link to={link.path} className="text-sm text-black hover:text-primary transition-colors">
                     {link.name}
                   </Link>
@@ -42,10 +49,10 @@ export function Footer() {
 
           {/* Solutions Col */}
           <div className="flex flex-col items-center sm:items-start mt-10">
-            <h3 className="font-semibold text-foreground mb-4">Top Solutions</h3>
+            <h3 className="font-semibold text-foreground mb-2">Top Solutions</h3>
             <ul className="space-y-5">
               {solutions.slice(0, 5).map((sol) => (
-                <li key={sol.id}>
+                <li key={sol.id} className="!mt-2">
                   <Link to={`/solutions/${sol.slug}`} className="text-sm text-black hover:text-primary transition-colors">
                     {sol.name}
                   </Link>
@@ -56,20 +63,20 @@ export function Footer() {
 
           {/* Contact Col */}
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left mt-10">
-            <h3 className="font-semibold text-foreground mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-foreground mb-2">Contact Us</h3>
             <ul className="space-y-[1.75rem]">
               <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-black max-w-xs mx-auto sm:mx-0">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5 text-center" />
                 <span className="text-start" >687/7, Trichy Road, Ramanathapuram, Coimbatore – 641045, Tamil Nadu, India</span>
               </li>
-              <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-black">
+              <li className="flex items-start justify-start sm:justify-start space-x-3 text-sm text-black !mt-2">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
                 <div className="flex flex-col">
                   <span>+91-422-231-2363</span>
                   <span>+91-739-975-0001</span>
                 </div>
               </li>
-              <li className="flex items-center justify-start sm:justify-start space-x-3 text-sm text-black">
+              <li className="flex items-center justify-start sm:justify-start space-x-3 text-sm text-black !mt-2">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
                 <span>sales@sporadasecure.com</span>
               </li>
@@ -104,16 +111,24 @@ export function Footer() {
             </a>
           </div>
 
-          <p className="text-sm flex items-center justify-center gap-2">
+          <p className="text-sm flex items-center justify-center gap-2 text-black">
             © {new Date().getFullYear()}
             <span className="flex items-center gap-1 font-bold text-primary">
               Sporada Secure
-              <img src={favicon} alt="sporada secure" className="w-4 h-4" aria-hidden="true" />
+              <img
+                src={favicon}
+                alt="sporada secure"
+                width="16"
+                height="16"
+                className="w-4 h-4"
+                aria-hidden="true"
+                loading="lazy"
+              />
             </span>
             . All rights reserved.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-black">
             <a href={privacyPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Privacy Policy</a>
             <a href={termsPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Terms of Service</a>
             <a href={refundPdf} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Refund Policy</a>

@@ -15,8 +15,8 @@ const getSessionId = () => {
   return sessionId;
 };
 
-const SOCKET_URL = "http://localhost:4000";
-
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
+console.log('socket url:', SOCKET_URL)
 export const WhatsAppWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [view, setView] = useState('choice'); // 'choice' or 'chat'
@@ -26,7 +26,7 @@ export const WhatsAppWidget = () => {
   ]);
   const [isTyping, setIsTyping] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
-  
+
   const socketRef = useRef(null);
   const scrollRef = useRef(null);
   const sessionId = getSessionId();
@@ -92,7 +92,7 @@ export const WhatsAppWidget = () => {
 
     setMessages(prev => [...prev, newUserMessage]);
     setMessage('');
-    
+
     // Send via Socket.io
     if (socketRef.current && socketRef.current.connected) {
       socketRef.current.emit('message', newUserMessage);
@@ -101,7 +101,7 @@ export const WhatsAppWidget = () => {
   };
 
   const openWhatsApp = () => {
-    const phoneNumber = "917399750001"; 
+    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
     const text = encodeURIComponent("Hi Sporada! I'm interested in your security solutions.");
     window.open(`https://wa.me/${phoneNumber}?text=${text}`, '_blank');
   };
@@ -122,6 +122,7 @@ export const WhatsAppWidget = () => {
                   <button
                     onClick={toggleWidget}
                     className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
+                    aria-label="Close chat"
                   >
                     <X size={20} />
                   </button>
@@ -181,12 +182,14 @@ export const WhatsAppWidget = () => {
                       onClick={() => setView('choice')}
                       className="p-2 hover:bg-white/10 rounded-lg transition-colors"
                       title="Back to options"
+                      aria-label="Back to options"
                     >
                       <ChevronLeft size={20} />
                     </button>
                     <button
                       onClick={toggleWidget}
                       className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                      aria-label="Close chat"
                     >
                       <X size={20} />
                     </button>
@@ -228,6 +231,7 @@ export const WhatsAppWidget = () => {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Type a message..."
+                    aria-label="Chat message"
                     className="flex-grow bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary transition-all outline-none"
                     disabled={!isConnected}
                   />
@@ -246,6 +250,7 @@ export const WhatsAppWidget = () => {
         whileHover={{ scale: 1.1, y: -4 }}
         whileTap={{ scale: 0.9 }}
         onClick={toggleWidget}
+        aria-label="Open chat"
         className="pointer-events-auto w-16 h-16 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl shadow-emerald-500/20 hover:shadow-emerald-500/40 transition-shadow relative overflow-hidden group"
       >
         <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />

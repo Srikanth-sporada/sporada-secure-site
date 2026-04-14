@@ -39,27 +39,27 @@ export default function Solutions() {
   const categories = ["All", ...new Set(solutions.map((s) => s.category))];
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const filteredSolutions = activeCategory === "All" 
-    ? solutions 
+  const filteredSolutions = activeCategory === "All"
+    ? solutions
     : solutions.filter((s) => s.category === activeCategory);
 
   return (
     <>
-      <SEOHead 
-        title="Our Solutions" 
+      <SEOHead
+        title="Our Solutions"
         description="Explore Sporada Secure's comprehensive suite of AI video analytics and surveillance solutions, from perimeter defense to retail analytics."
       />
-      <div className="min-h-screen bg-background pt-16 pb-16">
+      <div className="min-h-screen bg-background py-28">
         <div className="container mx-auto px-4 md:px-8">
-          
+
           <div className="text-center max-w-7xl mx-auto mb-10">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-black mb-6"
             >
-               Intelligent <span className="text-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Video Analytics</span>
+              Intelligent <span className="text-primary text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Video Analytics</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
               className="text-lg text-muted-foreground"
             >
@@ -97,7 +97,7 @@ export default function Solutions() {
                       <Card className="h-full bg-card/60 backdrop-blur-md border border-border/50 group-hover:border-primary/50 transition-all duration-300">
                         <CardContent className="p-8">
                           <div className="flex items-center justify-between mb-6">
-                            <div className="w-14 h-14 rounded-lg bg-background flex items-center justify-center border border-border group-hover:bg-primary transition-colors duration-300 overflow-hidden p-2">
+                            <div className="w-14 h-14 rounded-lg bg-background flex items-center justify-center border border-border transition-colors duration-300 overflow-hidden p-2">
                               <div
                                 style={{
                                   WebkitMaskImage: `url(${solutionImages[sol.slug]})`,
@@ -109,7 +109,7 @@ export default function Solutions() {
                                   maskRepeat: "no-repeat",
                                   maskPosition: "center",
                                 }}
-                                className="w-full h-full bg-primary group-hover:bg-white group-hover:scale-110 transition-transform duration-300"
+                                className="w-full h-full bg-primary transition-transform duration-300"
                                 aria-label={sol.name}
                               />
                             </div>
@@ -117,7 +117,7 @@ export default function Solutions() {
                               {sol.category}
                             </span>
                           </div>
-                          
+
                           <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{sol.name}</h3>
                           <p className="text-sm font-semibold text-primary mb-4">{sol.tagline}</p>
                           <p className="text-muted-foreground leading-relaxed mb-6">

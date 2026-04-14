@@ -1,8 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import { WhatsAppWidget } from "../shared/WhatsAppWidget";
+const WhatsAppWidget = lazy(() => import("../shared/WhatsAppWidget").then(m => ({ default: m.WhatsAppWidget })));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -21,7 +21,9 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppWidget />
+      <Suspense fallback={null}>
+        <WhatsAppWidget />
+      </Suspense>
     </div>
   );
 }
